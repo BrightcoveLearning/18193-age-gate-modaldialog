@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Brightcove Player Sample: Age Gate with ModalDialog</title>
+  <style>
+    /* override default styles for overlay */
+  	.vjs-my-custom-modal .vjs-modal-dialog-content {
+      color: red;
+      text-align: center;
+      padding-top: 20%;
+      cursor: pointer;
+    }
+    /* set size of player */
+    .video-js {
+      width: 640px;
+      height: 340px;
+  	}
+  </style>
+</head>
+
+<body>
+  <video id="myPlayerID"
+    data-video-id="4845831078001"
+    data-account="1752604059001"
+    data-player="BklUuer0HW"
+    data-embed="default"
+    data-application-id
+    class="video-js"
+    controls
+    width="640"
+    height="340"></video>
+  <script src="//players.brightcove.net/1752604059001/BklUuer0HW_default/index.min.js"></script>
+
+  <script type="text/javascript">
+    videojs('myPlayerID').ready(function(){
+      // Get a reference to the player when it is ready
+      var myPlayer = this,
+          options = {};
+      // Define the age gate text
+      options.content = 'By clicking here you certify that you are over 18 years old';
+      // Give the element some label text
+      options.label = 'age gate text';
+      // Set the modal dialog as temporary, so that you can remove it
+      options.temporary = true;
+      // Hide the close button on the modal dialog
+      options.uncloseable = true;
+
+      // Get a reference to the modal dialog
+      var ModalDialog = videojs.getComponent('ModalDialog');
+      // Instantiate the modal dialog with options defined above
+      var myModal = new ModalDialog(myPlayer, options);
+      // Add the modal dialog class
+      myModal.addClass('vjs-my-custom-modal');
+      // Add the modal dialog to the DOM
+      myPlayer.addChild(myModal);
+      // Open the modal dialog
+      myModal.open();
+
+      // Listen for the click event on the modal dialog
+      myModal.on("click", function(){
+        // Close the modal dialog
+        myModal.close();
+        // Start video playback
+        myPlayer.play();
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
