@@ -3,7 +3,7 @@ videojs.registerPlugin('ageGateModal', function() {
     var myPlayer = this,
         options = {};
 
-    // +++ Congifugre the ModalDialog +++
+    // +++ Configure the ModalDialog +++
     // Define the age gate text
     options.content = 'By clicking here you certify that you are over 18 years old';
     // Give the element some label text
