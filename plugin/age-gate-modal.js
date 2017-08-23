@@ -2,29 +2,32 @@ videojs.registerPlugin('ageGateModal', function() {
   // Get a reference to the player when it is ready
     var myPlayer = this,
         options = {};
+
+    // +++ Congifugre the ModalDialog +++
     // Define the age gate text
     options.content = 'By clicking here you certify that you are over 18 years old';
     // Give the element some label text
     options.label = 'age gate text';
-    // Set the modal dialog as temporary, so that you can remove it
+    // Set the ModalDialog as temporary, so that you can remove it
     options.temporary = true;
-    // Hide the close button on the modal dialog
+    // Hide the close button on the ModalDialog
     options.uncloseable = true;
 
-    // Get a reference to the modal dialog
+    // +++ Instantiate and open the ModalDialog +++
+    // Get a reference to the ModalDialog
     var ModalDialog = videojs.getComponent('ModalDialog');
-    // Instantiate the modal dialog with options defined above
+    // Instantiate the ModalDialog with options defined above
     var myModal = new ModalDialog(myPlayer, options);
-    // Add the modal dialog class
+    // Add custom class to the ModalDialog
     myModal.addClass('vjs-my-custom-modal');
-    // Add the modal dialog to the DOM
+    // Add the ModalDialog to the DOM
     myPlayer.addChild(myModal);
-    // Open the modal dialog
+    // Open the ModalDialog
     myModal.open();
 
-    // Listen for the click event on the modal dialog
+    // +++ Listen for the click event on the ModalDialog +++
     myModal.on("click", function(){
-      // Close the modal dialog
+      // Close the ModalDialog
       myModal.close();
       // Start video playback
       myPlayer.play();
