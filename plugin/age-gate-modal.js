@@ -20,7 +20,7 @@ videojs.registerPlugin('ageGateModal', function() {
     var myModal = new ModalDialog(myPlayer, options);
     // Add custom class to the ModalDialog
     myModal.addClass('vjs-my-custom-modal');
-    // Add the ModalDialog to the DOM
+    // Add the ModalDialog to the player
     myPlayer.addChild(myModal);
     // Open the ModalDialog
     myModal.open();
