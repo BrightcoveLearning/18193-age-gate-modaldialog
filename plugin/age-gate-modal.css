@@ -1,0 +1,12 @@
+/* override default styles for overlay */
+.vjs-my-custom-modal .vjs-modal-dialog-content {
+    color: red;
+    text-align: center;
+    padding-top: 20%;
+    cursor: pointer;
+  }
+  /* set size of player */
+  .video-js {
+    width: 640px;
+    height: 340px;
+	}
