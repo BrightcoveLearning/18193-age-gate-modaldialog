@@ -21,7 +21,7 @@
 </head>
 
 <body>
-  <video id="myPlayerID"
+  <video-js id="myPlayerID"
     data-video-id="4845831078001"
     data-account="1752604059001"
     data-player="default"
@@ -30,11 +30,11 @@
     class="video-js"
     controls
     width="640"
-    height="340"></video>
-  <script src="//players.brightcove.net/1752604059001/default_default/index.min.js"></script>
+    height="340"></video-js>
+  <script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"></script>
 
   <script type="text/javascript">
-  videojs('myPlayerID').ready(function(){
+  videojs.getPlayer('myPlayerID').ready(function() {
     // Get a reference to the player when it is ready
     var myPlayer = this,
         options = {};
